@@ -1,0 +1,19 @@
+.container{
+  border: 1px solid rgba(195, 209, 209, 0.5);
+  background-color: rgba(240, 255, 255, 0.5);
+  border-radius: 30px;
+  box-shadow: 6px 6px 2px hsla(0, 0%, 0%, 0.7);
+  width: 50%;
+  margin: 0px auto;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.container p{
+  margin-bottom: 12px;
+  font-weight: 700;
+  font-style: italic;
+}
+

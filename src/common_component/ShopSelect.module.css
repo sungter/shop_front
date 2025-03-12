@@ -1,0 +1,25 @@
+
+.select{
+  border: none;
+  border-radius: 4px;
+  outline: 1px solid rgb(180, 180, 180);
+  padding: 2px;
+  margin: 2px;
+  text-align: center;
+}
+
+.select:focus{
+  outline: 1.5px solid rgb(80, 80, 80);
+}
+
+.small{
+  width: 100px;
+}
+
+.normal{
+  width: 180px;
+}
+
+.large{
+  width: 100%;
+}

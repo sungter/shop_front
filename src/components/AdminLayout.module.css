@@ -1,0 +1,18 @@
+.admin_container{
+  width: 100%;
+}
+
+.admin_body{
+  display: flex;
+  height: 100vh;
+}
+
+.side_div{
+  border: 1px solid black;
+  width: 20%;
+}
+
+.content_div{
+  border: 1px solid black;
+  width: 80%;
+}

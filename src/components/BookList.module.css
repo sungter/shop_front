@@ -1,0 +1,13 @@
+.book_list{
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  grid-template-rows: repeat(10, auto);
+  row-gap: 30px;
+}
+
+.book_list > div{
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+}

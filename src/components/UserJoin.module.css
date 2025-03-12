@@ -1,0 +1,42 @@
+.red{
+  color: red;
+  font-size: 0.7rem;
+}
+
+.small_span{
+  font-size: 0.9rem;
+}
+
+.container{
+  width: 80%;
+  margin: 0px auto;
+}
+
+.container > h3 {
+  margin-bottom: 10px;
+}
+
+.body{
+  padding: 16px;
+  border-radius: 10px;
+  background-color: hsl(0, 0%, 95%);
+}
+
+.body>div, button{
+  text-align: right;
+}
+
+.body>table{
+  width: 100%;
+}
+
+.body > table tr > td{
+  border: 2px solid white;
+  border-style: groove;
+  padding: 8px;
+}
+
+.check_data{
+  font-size: 0.7rem;
+  color: gray;
+}

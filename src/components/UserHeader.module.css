@@ -1,0 +1,78 @@
+.header_container{
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.login_div{
+  text-align: right;
+  padding: 4px 16px;
+}
+
+.login_div > span{
+  margin-right: 10px;
+}
+
+.login_div > span:hover{
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.banner_div{
+  position: relative;
+}
+
+.banner_div > img{
+  width: 100%;
+  display: block;
+  border: 2px solid lightgrey;
+  border-style: dashed;
+}
+
+.banner_div >div{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255);
+  padding: 50px;
+  border: 1px solid rgba(220, 20, 60, 0.3);
+  border-radius: 50px;
+  border-style: dotted;
+  font-weight: bolder;
+  height: 30%;
+  width: 30%;
+  max-width: 30%;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+}
+
+.banner_div >div>img{
+  width: 100%;
+  height: auto;
+  max-width: 500px;
+}
+
+
+
+.menu_div{
+  border-bottom: 2px solid #eeeeee;
+}
+
+.menu_ul{
+  display: flex;
+  padding: 8px;
+  gap: 30px;
+}
+
+@media (max-width: 1000px) {
+  .banner_div >div{
+    max-width: auto;
+  }
+  
+  .banner_div >div>img {
+    max-width: auto; /* 화면 너비가 1000px 이하인 경우 이미지 최대 너비를 500px로 조정 */
+  }
+
+}
