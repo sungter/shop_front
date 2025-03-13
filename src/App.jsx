@@ -21,9 +21,16 @@ import State변경함수흐름2 from "./components/practice/State변경함수흐
 import State변경함수흐름3 from "./components/practice/State변경함수흐름3";
 import Login from "./components/Login";
 import StorageTest from "./components/practice/StorageTest";
+import { useEffect } from "react";
 
 
 function App() {
+  //sessionStorage에 있는 loginInfo데이터 받아오기
+  //받은 데이터는 객체가 아닌 json 데이터이다.(문자열 데이터)
+  //사용하려면 객체로 변환해줘야한다. -> JSON.parse(json데이터)
+
+  // const loginInfo = JSON.parse(sessionStorage.getItem('loginInfo'))
+  // console.log(loginInfo)
   
 
   return (

@@ -15,7 +15,27 @@
 .login_div > span:hover{
   cursor: pointer;
   font-weight: 700;
+  color: green;
 }
+
+
+/* loginInfo bar ///////////////// */
+.loginInfo_div{
+  text-align: right;
+  padding: 4px 16px;
+}
+
+.loginInfo_div > span{
+  margin-right: 10px;
+}
+
+.logout:hover{
+  cursor: pointer;
+  font-weight: 700;
+  color: red;
+}
+/* /////////////////////////////// */
+
 
 .banner_div{
   position: relative;

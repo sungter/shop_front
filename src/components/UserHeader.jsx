@@ -8,6 +8,11 @@ const UserHeader = () => {
 
   //카테고리 정보 받아올 변수
   const [bookCategory, setBookCategory] = useState([]);
+
+  //sessionStorage에 있는 loginInfo 데이터 가져오기
+  //loginInfo 데이터가 없다면 로인 안한 것, -> null
+  const loginInfo = JSON.parse(sessionStorage.getItem('loginInfo'));
+
   
   //카테고리 정보 받아올 함수
   useEffect(() => {
@@ -16,13 +21,32 @@ const UserHeader = () => {
         .catch(error => console.log(error))
   }, []);
 
+
+  //세션 스토리지 안 로그인 정보 삭제 함수
+  const deleteLoginInfo = () => {
+    sessionStorage.removeItem('loginInfo')
+    window.location.reload()
+  }
+  
+
   return (
     <div className={styles.header_container}>
       
-      <div className={styles.login_div}>
-        <span onClick={e => nav('/login')}>Login</span>
-        <span onClick={e => nav('/join') }>Join</span>
-      </div>
+      {/* 로그인 했을 경우와 안했을 경우 header배너 변경 */}
+      {
+        loginInfo === null 
+        ? 
+        <div className={styles.login_div}>
+          <span onClick={e => nav('/login')}>Login</span>
+          <span onClick={e => nav('/join') }>Join</span>
+        </div>
+        :
+        <div className={styles.loginInfo_div}>
+          <span>{`[ ${loginInfo.userId} 님 ]`}</span>
+          <span onClick={e => deleteLoginInfo()} className={styles.logout} >Logout</span>
+        </div>
+      }
+      
 
       <div className={styles.banner_div}>
         <img src="/23673952_6850521.jpg" alt="book-banner" />
