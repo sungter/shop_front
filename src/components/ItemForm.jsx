@@ -122,6 +122,11 @@ const ItemForm = () => {
             onChange={e => changeBookData(e)}
           />
         </div>
+
+        <div>
+          <p>도서 이미지</p>
+          <input type="file" />
+        </div>
       </div>
       
       <div>

@@ -25,7 +25,7 @@ const UserHeader = () => {
   //세션 스토리지 안 로그인 정보 삭제 함수
   const deleteLoginInfo = () => {
     sessionStorage.removeItem('loginInfo')
-    window.location.reload()
+    nav('/')
   }
   
 
@@ -43,7 +43,12 @@ const UserHeader = () => {
         :
         <div className={styles.loginInfo_div}>
           <span>{`[ ${loginInfo.userId} 님 ]`}</span>
-          <span onClick={e => deleteLoginInfo()} className={styles.logout} >Logout</span>
+          <span 
+            onClick={e => {
+              deleteLoginInfo()
+            }} 
+            className={styles.logout} 
+          >Logout</span>
         </div>
       }
       

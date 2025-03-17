@@ -22,6 +22,7 @@ import State변경함수흐름3 from "./components/practice/State변경함수흐
 import Login from "./components/Login";
 import StorageTest from "./components/practice/StorageTest";
 import { useEffect } from "react";
+import UploadTest from "./components/practice/UploadTest";
 
 
 function App() {
@@ -35,6 +36,9 @@ function App() {
 
   return (
     <div className='container'>
+      {/* 파일 업로드 연습 */}
+      <UploadTest />
+
       {/* <StorageTest /> */}
       {/* 연습
       <div>
