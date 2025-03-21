@@ -25,6 +25,13 @@ const ItemForm = () => {
     bookInfo : ''
   });
 
+  //메인, 상세 이미지 파일 저장할 변수
+  const [mainImg , setMainImg] = useState(null);
+  const [detailImg , setDetailImg] = useState(null);
+
+  //자바로 데이터를 전달할 때, 문자 뿐 아니라 파일 데이터도 가져간다는 것을 설정
+  const fileConfig = {header : {'Content-Type' : 'multipart/form-data'}};
+
   //카테고리 정보 목록을 가져올 함수
   useEffect(() => {
     bookApi.getCategoryList()
@@ -46,7 +53,12 @@ const ItemForm = () => {
       return;
     }
 
-    bookApi.insertBook(bookData)
+    const form = new FormData();
+    form.append('BookDTO', bookData);
+    form.append('mainImg', mainImg);
+    form.append('detailImg', detailImg);
+
+    bookApi.insertBook( form , fileConfig)
         .then(res => {
           alert('등록이 완료되었습니다.');
           window.location.reload();
@@ -125,7 +137,11 @@ const ItemForm = () => {
 
         <div>
           <p>도서 이미지</p>
-          <input type="file" />
+          {/* 메인 이미지 */}
+          <input type="file" onChange={e => setMainImg(e.target.files[0])} />
+
+          {/* 상세 이미지 */}
+          <input type="file" onChange={e => setDetailImg(e.target.files[0])} />
         </div>
       </div>
       

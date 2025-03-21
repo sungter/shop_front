@@ -62,8 +62,8 @@ export const deleteCategory = (cateCode) => {
  * }
  * 
  */
-export const insertBook = (bookData) => {
-  const response = axios.post('/api/books', bookData);
+export const insertBook = (form, fileConfig) => {
+  const response = axios.post('/api/books', form, fileConfig);
   return response;
 };
 
