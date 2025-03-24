@@ -27,10 +27,9 @@ const ItemForm = () => {
 
   //메인, 상세 이미지 파일 저장할 변수
   const [mainImg , setMainImg] = useState(null);
-  const [detailImg , setDetailImg] = useState(null);
+  const [subImg , setSubImg] = useState(null);
 
-  //자바로 데이터를 전달할 때, 문자 뿐 아니라 파일 데이터도 가져간다는 것을 설정
-  const fileConfig = {header : {'Content-Type' : 'multipart/form-data'}};
+  
 
   //카테고리 정보 목록을 가져올 함수
   useEffect(() => {
@@ -53,12 +52,23 @@ const ItemForm = () => {
       return;
     }
 
-    const form = new FormData();
-    form.append('BookDTO', bookData);
-    form.append('mainImg', mainImg);
-    form.append('detailImg', detailImg);
 
-    bookApi.insertBook( form , fileConfig)
+
+    const regForm = new FormData();
+    //도서 등록시(DB에 insert) 필요한 데이터 적재
+    regForm.append('cateCode', bookData.cateCode);
+    regForm.append('bookInfo', bookData.bookInfo);
+    regForm.append('bookName', bookData.bookName);
+    regForm.append('bookPrice', bookData.bookPrice);
+    regForm.append('publisher', bookData.publisher);
+
+    //첨부파일 데이터 적재
+    regForm.append('mainImg', mainImg);
+    regForm.append('subImg', subImg);
+    
+
+
+    bookApi.insertBook(regForm)
         .then(res => {
           alert('등록이 완료되었습니다.');
           window.location.reload();
@@ -66,7 +76,6 @@ const ItemForm = () => {
         .catch(error => console.log(error))
   };
 
-  console.log(bookData)
 
   return (
     <div className='item-form-container'>
@@ -76,7 +85,7 @@ const ItemForm = () => {
       
       <div>
         <div>
-          <p>카테고리</p>
+          <h4>카테고리</h4>
           <ShopSelect 
             name='cateCode'
             size='small'
@@ -94,7 +103,7 @@ const ItemForm = () => {
         </div>
         
         <div>
-          <p>도서명</p>
+          <h4>도서명</h4>
                     
           <ShopInput 
             name='bookName'
@@ -104,7 +113,7 @@ const ItemForm = () => {
         </div>
         
         <div>
-          <p>출판사</p>
+          <h4>출판사</h4>
     
           <ShopInput 
             name='publisher' 
@@ -114,7 +123,7 @@ const ItemForm = () => {
         </div>
         
         <div>
-          <p>가격</p>
+          <h4>가격</h4>
 
           <ShopInput 
             name='bookPrice' 
@@ -124,7 +133,7 @@ const ItemForm = () => {
         </div>
         
         <div>
-          <p>책 소개</p>
+          <h4>책 소개</h4>
         
           <ShopTextarea 
             cols={50}
@@ -136,12 +145,20 @@ const ItemForm = () => {
         </div>
 
         <div>
-          <p>도서 이미지</p>
-          {/* 메인 이미지 */}
-          <input type="file" onChange={e => setMainImg(e.target.files[0])} />
+          <h4>도서 이미지</h4>
+          
+          <div>
+            {/* 메인 이미지 */}
+            <span>도서 메인 이미지</span>
+            <input type="file" onChange={e => setMainImg(e.target.files[0])} />
+          </div>
 
-          {/* 상세 이미지 */}
-          <input type="file" onChange={e => setDetailImg(e.target.files[0])} />
+          <div>
+            {/* 상세 이미지 */}
+            <span>도서 상세 이미지</span>
+            <input type="file" onChange={e => setSubImg(e.target.files[0])} />
+          </div>
+
         </div>
       </div>
       

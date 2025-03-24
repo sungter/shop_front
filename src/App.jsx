@@ -37,7 +37,7 @@ function App() {
   return (
     <div className='container'>
       {/* 파일 업로드 연습 */}
-      <UploadTest />
+      {/* <UploadTest /> */}
 
       {/* <StorageTest /> */}
       {/* 연습

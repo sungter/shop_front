@@ -54,16 +54,22 @@ export const deleteCategory = (cateCode) => {
  * param : 도서 등록을 위해 입력한 값을 받은 데이터 (객체)
  * 
  * {
- * cateCode : 1,
+ *  cateCode : 1,
     bookName : '',
     publisher : '',
     bookPrice : 0,
     bookInfo : ''
  * }
  * 
+ * 파일 업로드를 위해 위 객체도 form 에 data를 넣어서 form을 가져옴
+ * 
  */
-export const insertBook = (form, fileConfig) => {
+export const insertBook = (form) => {
+  //자바로 데이터를 전달할 때, 문자 뿐 아니라 파일 데이터도 가져간다는 것을 설정
+  const fileConfig = {header : {'Content-Type' : 'multipart/form-data'}};
+
   const response = axios.post('/api/books', form, fileConfig);
+
   return response;
 };
 
