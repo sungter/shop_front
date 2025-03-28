@@ -2,7 +2,7 @@ import React from 'react'
 import { Outlet, useNavigate } from 'react-router-dom'
 import styles from './AdminLayout.module.css'
 import UserHeader from './UserHeader'
-import ShopButton from '../common_component/ShopButton'
+import ShopButton from '../../common_component/ShopButton'
 
 const AdminLayout = () => {
   const nav = useNavigate();

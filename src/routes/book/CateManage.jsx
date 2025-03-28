@@ -1,9 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import * as bookApi from '../apis/BookApi';
+import * as bookApi from '../../apis/bookApi';
 import styles from './CateManage.module.css'
-import ShopInput from '../common_component/ShopInput';
-import ShopButton from '../common_component/ShopButton';
+import ShopInput from '../../common_component/ShopInput';
+import ShopButton from '../../common_component/ShopButton';
 
 const CateManage = () => {
   //카테고리 목록 받아와 저장할 변수

@@ -1,10 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import * as bookApi from '../apis/BookApi'
-import ShopInput from '../common_component/ShopInput';
-import ShopButton from '../common_component/ShopButton';
-import ShopTextarea from '../common_component/ShopTextarea';
-import ShopSelect from '../common_component/ShopSelect';
+import * as bookApi from '../../apis/bookApi'
+import ShopInput from '../../common_component/ShopInput';
+import ShopButton from '../../common_component/ShopButton';
+import ShopTextarea from '../../common_component/ShopTextarea';
+import ShopSelect from '../../common_component/ShopSelect';
 
 //상품 등록 컴포넌트
 //도서명 input

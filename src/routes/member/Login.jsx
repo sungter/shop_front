@@ -1,9 +1,9 @@
 
 import React, { useState } from 'react'
-import ShopInput from '../common_component/ShopInput';
-import ShopButton from '../common_component/ShopButton';
+import ShopInput from '../../common_component/ShopInput';
+import ShopButton from '../../common_component/ShopButton';
 import axios from 'axios';
-import { loginUser } from '../apis/userApi';
+import { loginUser } from '../../apis/userApi';
 import styles from './Login.module.css'
 import { useNavigate } from 'react-router-dom';
 
@@ -42,11 +42,7 @@ const Login = () => {
     loginUser(loginData)
         .then((res) => {
           console.log(res.data)
-          //자바에서 null데이터가 넘어오면 ''(빈문자로 받는다) 아닌경우, 조회한 데이터를 가진 객체가 넘어온다
-          if(res.data === ''){
-            alert('실패')
-          }
-          else{
+          
             //로그인 성공시 sessionStorage에 로그인하는 회원의 아이디, 이름, 권한 정보를 저장한다.
 
             // 한 개씩 key, value 값을 넣을때
@@ -73,8 +69,16 @@ const Login = () => {
             //일반회원 : 상품 목록 페이지, 관리자 : 상품 등록 페이지(임시)
             nav(loginInfo.userRoll === 'USER' ? '/' : '/admin/reg-item');
           }
-        })
-        .catch();
+        )
+        .catch((error) => {
+          if(error.status == 404){
+            alert(error.response.data);
+          }
+          else{
+            console.log(error);
+            alert('오류 발생, 관리자 문의');
+          }
+        });
   };
 
   return (
